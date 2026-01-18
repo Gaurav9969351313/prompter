@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Orchestrator</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Elements -->
+    <!-- Shapes removed for minimalist theme -->
+
+    <div class="container">
+        <div class="main-card">
+
+            <div class="panel-left">
+                <header>
+                    <h1>Orchestrator</h1>
+                    <p class="subtitle">Assign tasks to your specialized agents</p>
+                </header>
+
+                <form id="orchestratorForm">
+                    <div class="form-group">
+                        <label>Select Agent</label>
+                        <div class="agent-grid">
+
+                             <label class="agent-option">
+                                <input type="radio" name="agent" value="SA">
+                                <span class="agent-card">
+                                    <span class="agent-code">SA</span>
+                                    <!-- <span class="agent-name">Strategic Advisor</span> -->
+                                </span>
+                            </label>
+
+
+                             <label class="agent-option">
+                                <input type="radio" name="agent" value="SM">
+                                <span class="agent-card">
+                                    <span class="agent-code">SM</span>
+                                    <!-- <span class="agent-name">Scrum Master</span> -->
+                                </span>
+                            </label>
+
+
+                            <label class="agent-option">
+                                <input type="radio" name="agent" value="ER" required>
+                                <span class="agent-card">
+                                    <span class="agent-code">ER</span>
+                                    <!-- <span class="agent-name">Email Responder</span> -->
+                                </span>
+                            </label>
+
+
+                            <label class="agent-option">
+                                <input type="radio" name="agent" value="CT">
+                                <span class="agent-card">
+                                    <span class="agent-code">CT</span>
+                                    <!-- <span class="agent-name">Communication Teacher</span> -->
+                                </span>
+                            </label>
+
+                             <label class="agent-option">
+                                <input type="radio" name="agent" value="JPS">
+                                <span class="agent-card">
+                                    <span class="agent-code">JPS</span>
+                                    <!-- <span class="agent-name">Java Problem Solver</span> -->
+                                </span>
+                            </label>
+
+                             <label class="agent-option">
+                                <input type="radio" name="agent" value="JCR">
+                                <span class="agent-card">
+                                    <span class="agent-code">JCR</span>
+                                    <!-- <span class="agent-name">Java Code Review</span> -->
+                                </span>
+                            </label>
+
+                            <label class="agent-option">
+                                <input type="radio" name="agent" value="PE">
+                                <span class="agent-card">
+                                    <span class="agent-code">PE</span>
+                                    <!-- <span class="agent-name">Prompt Engineer</span> -->
+                                </span>
+                            </label>    
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contextInput">Task Context</label>
+                        <textarea id="contextInput" rows="5" placeholder="Describe the task or issue..."
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="outputFormat">Output Format</label>
+                        <select id="outputFormat" class="output-format-select">
+                            <option value="HTML" selected>HTML Preview</option>
+                            <option value="PDF">PDF via Email</option>
+                            <option value="EMAIL">HTML via Email</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn-submit">Dispatch Agent</button>
+                </form>
+            </div>
+
+            <div class="panel-right">
+                <div class="response-header">
+                    <h2>Response Preview</h2>
+                    <div class="header-actions">
+                        <span class="status-indicator" id="connectionStatus">Ready</span>
+                        <button id="downloadPdfBtn" class="btn-pdf" title="Download as PDF">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div id="responseOutput" class="response-console markdown-body">
+                    <div class="placeholder-text">
+                        Waiting for tasks...<br>
+                        Select an agent and submit to see response.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
