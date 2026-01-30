@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadPdfBtn = document.getElementById('downloadPdfBtn');
     const originalBtnText = submitBtn.innerText;
 
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZajfQ6e1LcsRgDse6cG_-_V50Omu9rD3qTymwKRgKByrA1oJ_M65z3ZadNkIghDKnMQ/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBJFIJZKYBWSbwGw-CyrSBC4SpgUJnhgoawvs2cnZhjjW_VW6LA2vZXR3rJYufpO8PTA/exec';
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
